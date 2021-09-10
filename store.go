@@ -27,10 +27,10 @@ var (
 )
 
 // StoreABI is the input ABI used to generate the binding from.
-const StoreABI = "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"value\",\"type\":\"bytes32\"}],\"name\":\"ItemSet\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getVersion\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"items\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"value\",\"type\":\"bytes32\"}],\"name\":\"setItem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]"
+const StoreABI = "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"value\",\"type\":\"bytes32\"}],\"name\":\"ItemSet\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"}],\"name\":\"getItem\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"array\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getVersion\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"items\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"value\",\"type\":\"bytes32\"}],\"name\":\"setItem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]"
 
 // StoreBin is the compiled bytecode used for deploying new contracts.
-var StoreBin = "0x608060405234801561001057600080fd5b50604080518082019091526005808252640312e302e360dc1b602090920191825261003d91600091610043565b50610117565b82805461004f906100dc565b90600052602060002090601f01602090048101928261007157600085556100b7565b82601f1061008a57805160ff19168380011785556100b7565b828001600101855582156100b7579182015b828111156100b757825182559160200191906001019061009c565b506100c39291506100c7565b5090565b5b808211156100c357600081556001016100c8565b600181811c908216806100f057607f821691505b6020821081141561011157634e487b7160e01b600052602260045260246000fd5b50919050565b6102ad806101266000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630d8e6e2c1461005157806348f343f31461008457806354fd4d50146100b2578063f56256c7146100ba575b600080fd5b6040805180820190915260058152640312e302e360dc1b60208201525b60405161007b91906101e7565b60405180910390f35b6100a46100923660046101ac565b60016020526000908152604090205481565b60405190815260200161007b565b61006e6100cf565b6100cd6100c83660046101c5565b61015d565b005b600080546100dc9061023c565b80601f01602080910402602001604051908101604052809291908181526020018280546101089061023c565b80156101555780601f1061012a57610100808354040283529160200191610155565b820191906000526020600020905b81548152906001019060200180831161013857829003601f168201915b505050505081565b60008281526001602090815260409182902083905581518481529081018390527fe79e73da417710ae99aa2088575580a60415d359acfad9cdd3382d59c80281d4910160405180910390a15050565b6000602082840312156101be57600080fd5b5035919050565b600080604083850312156101d857600080fd5b50508035926020909101359150565b600060208083528351808285015260005b81811015610214578581018301518582016040015282016101f8565b81811115610226576000604083870101525b50601f01601f1916929092016040019392505050565b600181811c9082168061025057607f821691505b6020821081141561027157634e487b7160e01b600052602260045260246000fd5b5091905056fea2646970667358221220987256084df48ade20d8681c2fa2a9ff201d765864d2dc95d21512812ca5366964736f6c63430008060033"
+var StoreBin = "0x608060405234801561001057600080fd5b50604080518082019091526005808252640312e302e360dc1b602090920191825261003d91600091610043565b50610117565b82805461004f906100dc565b90600052602060002090601f01602090048101928261007157600085556100b7565b82601f1061008a57805160ff19168380011785556100b7565b828001600101855582156100b7579182015b828111156100b757825182559160200191906001019061009c565b506100c39291506100c7565b5090565b5b808211156100c357600081556001016100c8565b600181811c908216806100f057607f821691505b6020821081141561011157634e487b7160e01b600052602260045260246000fd5b50919050565b6102d8806101266000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80630d8e6e2c1461005c57806348f343f31461008f57806354fd4d50146100bd578063aa0372e7146100c5578063f56256c7146100e5575b600080fd5b6040805180820190915260058152640312e302e360dc1b60208201525b6040516100869190610212565b60405180910390f35b6100af61009d3660046101d7565b60016020526000908152604090205481565b604051908152602001610086565b6100796100fa565b6100af6100d33660046101d7565b60009081526001602052604090205490565b6100f86100f33660046101f0565b610188565b005b6000805461010790610267565b80601f016020809104026020016040519081016040528092919081815260200182805461013390610267565b80156101805780601f1061015557610100808354040283529160200191610180565b820191906000526020600020905b81548152906001019060200180831161016357829003601f168201915b505050505081565b60008281526001602090815260409182902083905581518481529081018390527fe79e73da417710ae99aa2088575580a60415d359acfad9cdd3382d59c80281d4910160405180910390a15050565b6000602082840312156101e957600080fd5b5035919050565b6000806040838503121561020357600080fd5b50508035926020909101359150565b600060208083528351808285015260005b8181101561023f57858101830151858201604001528201610223565b81811115610251576000604083870101525b50601f01601f1916929092016040019392505050565b600181811c9082168061027b57607f821691505b6020821081141561029c57634e487b7160e01b600052602260045260246000fd5b5091905056fea26469706673582212208cbc281cd145b4e62568e4b79e28d2a4ada509a4e8ad06a90eba9da5ba01d9c864736f6c63430008060033"
 
 // DeployStore deploys a new Ethereum contract, binding an instance of Store to it.
 func DeployStore(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *Store, error) {
@@ -186,6 +186,37 @@ func (_Store *StoreTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Tran
 // Transact invokes the (paid) contract method with params as input values.
 func (_Store *StoreTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
 	return _Store.Contract.contract.Transact(opts, method, params...)
+}
+
+// GetItem is a free data retrieval call binding the contract method 0xaa0372e7.
+//
+// Solidity: function getItem(bytes32 key) view returns(bytes32 array)
+func (_Store *StoreCaller) GetItem(opts *bind.CallOpts, key [32]byte) ([32]byte, error) {
+	var out []interface{}
+	err := _Store.contract.Call(opts, &out, "getItem", key)
+
+	if err != nil {
+		return *new([32]byte), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+
+	return out0, err
+
+}
+
+// GetItem is a free data retrieval call binding the contract method 0xaa0372e7.
+//
+// Solidity: function getItem(bytes32 key) view returns(bytes32 array)
+func (_Store *StoreSession) GetItem(key [32]byte) ([32]byte, error) {
+	return _Store.Contract.GetItem(&_Store.CallOpts, key)
+}
+
+// GetItem is a free data retrieval call binding the contract method 0xaa0372e7.
+//
+// Solidity: function getItem(bytes32 key) view returns(bytes32 array)
+func (_Store *StoreCallerSession) GetItem(key [32]byte) ([32]byte, error) {
+	return _Store.Contract.GetItem(&_Store.CallOpts, key)
 }
 
 // GetVersion is a free data retrieval call binding the contract method 0x0d8e6e2c.
